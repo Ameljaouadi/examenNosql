@@ -1,0 +1,141 @@
+.nav-menu a {
+    text-decoration: none;
+}
+
+/*abonnées page*/
+
+/* Global styles for the navbar */
+.navbar {
+  
+ 
+  /*padding: 5px 20px;*/
+  width: 90%;
+ 
+}
+.table-container {
+  max-height: 400px; /* Définissez la hauteur maximale pour activer le défilement */
+  overflow-y: auto; /* Activer le défilement vertical */
+  border: 1px solid #dee2e6; /* Ajouter une bordure pour un meilleur visuel */
+}
+.table {
+  margin-bottom: 0; /* Réduire les marges inutiles du tableau */
+}
+
+/* Align elements inside the navbar page */
+.navbarpage {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+   
+}
+
+/* Search bar styles */
+.search-bar {
+  display: flex;
+  align-items: center;
+}
+
+.search-bar input {
+  border-radius: 20px;
+  border: 1px solid #ced4da;
+  padding: 8px 15px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.2s ease-in-out;
+  
+ 
+}
+
+.search-bar input:focus {
+  border-color: #6c757d; /* Slightly darker border on focus */
+}
+
+.search-bar button {
+  background-color: #ffffff;
+  border: none;
+  margin-left: 10px;
+  padding: 10px;
+  cursor: pointer;
+  color: #000; /* White icon */
+}
+
+.search-bar button:hover {
+  background-color: #5a6268; /* Darker hover effect */
+}
+
+/* User info section */
+.user-info {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+}
+
+.user-info i {
+  color: #000000; /* White user icon */
+}
+
+.user-info #username {
+  margin-left: 8px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .search-bar input {
+    width: 200px;
+  }
+
+  .user-info #username {
+    font-size: 14px;
+  }
+}
+
+/*dashbord*/
+.navbar-dash{
+  margin-right: 2%;
+  margin-top: 1%;
+  width: 100%;
+
+
+
+}
+.dashbord-menu{
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  }
+
+
+/* Table section */
+.list-aboonnes {
+  padding: 20px;
+  overflow-y: auto; /* Allows scrolling if content overflows */
+}
+
+.status-en-cours {
+  background-color: yellow;
+  color: black;
+}
+
+.status-retourne {
+  background-color: green;
+  color: white;
+}
+
+.status-en-retard {
+  background-color: red;
+  color: white;
+}
+.status-oui {
+  background-color: green;
+  color: white;
+}
+
+.status-non {
+  background-color: red;
+  color: white;
+}
+
+

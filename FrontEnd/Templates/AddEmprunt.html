@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter Abonnee</title>
+    <link rel="stylesheet" href="../Static/css/addabonnee.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+  />
+</head>
+<body class="bg-light">
+  
+        </div>
+    <div class="AddAbonnee d-flex">
+        <div>
+            {% include 'SideBar.html' %}
+        
+        </div>
+
+      <div class="main-content2 flex-grow-1">
+            
+  
+      <!-- Message de succès ou d'erreur -->
+      {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <div class="alert {{ 'alert-' + messages[0][0] }}">
+          {{ messages[0][1] }}
+        </div>
+      {% endif %}
+      {% endwith %}
+      <form id="addEmpruntForm" action="/AddEmprunt" method="POST" class="p-4  ">
+        <h2 class="text-center mb-4">Ajouter un Emprunt</h2>
+
+        <div class="row">
+          <div class="col-6">
+            <label for="code_emprunt" class="form-label">Code Emprunt</label>
+            <input type="text" id="code_emprunt" name="code_emprunt" class="form-control" required>
+                     
+          </div>
+          <div class="col-6">
+            <label for="abonne" class="form-label">Abonné</label>
+            <select class="form-control" id="abonne" name="abonne" required>
+              {% for abonne in abonnes %}
+              <option value="{{ abonne['_id'] }}">{{ abonne['nom'] }} </option>
+              {% endfor %}
+            </select>       
+          </div>
+         
+        </div>
+      
+        <div class="row">
+          <div class="col-6">
+            <label for="document_emprunte" class="form-label">Document Emprunté</label>
+            <select class="form-control" id="document" name="document" required>
+              {% for document in documents %}
+                {% if document.disponibilite == 'oui' %}
+                  <option value="{{ document._id }}">{{ document.titre }}</option>
+                {% endif %}
+              {% endfor %}
+            </select>        
+          </div>
+          <div class="col-6">
+            <label for="date_emprunt" class="form-label">Date d’emprunt</label>
+            <input type="date" class="form-control" id="date_emprunt" name="date_emprunt"  required>
+
+          </div>
+          
+         
+        </div>
+      
+      
+      
+        <div class="row">
+          
+          <div class="col-6 ">
+            <label for="statut" class="form-label">Statut</label>
+            <select class="form-control" id="statut" name="statut" required>
+              <option value="En Cours">En Cours</option>
+              <option value="Retourné">Retourné</option>
+              <option value="En retard">En retard</option>
+            </select>
+           </div>
+           <div class="col-6">
+            <label for="date_retour_prevue" class="form-label">Date de retour prévue</label>
+            <input type="date" class="form-control" id="date_retour" name="date_retour" required>
+
+          </div>
+        </div>
+        <div class="bouttonsAA">
+          <button type="reset" class=" btn-annuler"><span>Annuler</span></button>
+
+          <button type="submit" class=" btn-ajout" ><span>Ajouter</span> </button>
+  
+        </div>
+       
+      </form>
+      
+    </div>
+
+</div>
+  
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
+    <script>
+      document.getElementById('addEmpruntForm').addEventListener('submit', function(event) {
+          const dateEmpruntInput = document.getElementById('date_emprunt');
+          const dateRetourInput = document.getElementById('date_retour');
+          const errorDateEmprunt = document.getElementById('error-date-emprunt');
+          const errorDateRetour = document.getElementById('error-date-retour');
+      
+          const today = new Date();
+          today.setHours(0, 0, 0, 0); // Mettre l'heure à 00:00:00 pour éviter les erreurs de comparaison
+      
+          // Réinitialiser les messages d'erreur
+          errorDateEmprunt.textContent = '';
+          errorDateRetour.textContent = '';
+      
+          const dateEmprunt = new Date(dateEmpruntInput.value);
+          const dateRetour = new Date(dateRetourInput.value);
+      
+          // Validation : Date d'emprunt
+          if (!dateEmpruntInput.value || dateEmprunt < today) {
+              errorDateEmprunt.textContent = "La date d’emprunt doit être aujourd’hui.";
+              event.preventDefault();
+          }
+      
+          // Validation : Date de retour
+          if (!dateRetourInput.value || dateRetour <= dateEmprunt) {
+              errorDateRetour.textContent = "La date de retour doit être après la date d’emprunt.";
+              event.preventDefault();
+          } else if ((dateRetour - dateEmprunt) / (1000 * 60 * 60 * 24) > 7) {
+              errorDateRetour.textContent = "La date de retour ne peut pas dépasser une semaine après la date d’emprunt.";
+              event.preventDefault();
+          }
+      });
+      
+      // Pré-remplir la date d'emprunt avec la date actuelle
+      document.getElementById('date_emprunt').value = new Date().toISOString().split('T')[0];
+      </script>
+      
+    
+  </body>
+</html>

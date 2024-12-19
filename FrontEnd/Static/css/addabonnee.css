@@ -1,0 +1,80 @@
+/*Add abonnee*/
+.AddAbonnee{
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .main-content2{
+    flex-grow: 1;
+    padding: 2rem;
+  }
+  .main-content2 form {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  .form-label {
+    font-weight: 500;
+    color: #495057;
+  }
+  
+  .form-control {
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    padding: 0.75rem;
+    font-size: 1rem;
+  }
+  .bouttonsAA{
+    display: flex;
+    justify-content: space-between;
+  }
+  .bouttonsAA button{
+    border: none;
+    padding: 0.75rem;
+    border-radius: 5px;
+    width: 20%;
+
+  }
+  .bouttonsAA span{
+    font-weight: 500;
+  }
+  
+  .btn-ajout {
+    background-color: #3f77a8;
+  }
+  
+  .btn-ajout:hover {
+    background-color: #166381;
+  }
+  
+  .btn-annuler {
+    background-color: #6c757d;
+    
+  }
+  
+  .btn-annuler:hover {
+    background-color: #5a6268;
+  }
+  
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+  }
+  .myadresse{
+    margin-left: 25%;
+  }
+ 
+  
+  .col-6 {
+    flex: 0 0 50%;
+    padding: 0 1rem;
+  }
+  
+  @media (max-width: 768px) {
+    .col-6 {
+      flex: 0 0 100%;
+      padding: 0;
+    }
+  }

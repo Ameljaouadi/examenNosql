@@ -1,0 +1,170 @@
+/* Disposition générale */
+body {
+    margin: 0;
+    padding: 0;
+    overflow-y: auto; /* Active le défilement vertical */
+    background-color: #f8f9fa; /* Couleur de fond douce */
+    min-height: 100vh;
+}
+.list-card h2 {
+   
+    color: #33393f; /* Couleur plus foncée et moderne */
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+}
+.list-card {
+    margin-top: 1%;
+    text-align: center;
+    min-height: 80vh;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 cartes par ligne */
+    gap: 20px; /* Espacement entre les cartes */
+    justify-items: center;
+}
+
+/* Styles des cartes */
+.card {
+    width: 100%;
+    max-width: 250px;
+    border-radius: 15px;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    transition: all 0.3s ease-in-out;
+    padding: 15px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card-body {
+    padding: 15px;
+}
+
+
+/* Couleurs des cartes */
+.card-abonnes {
+    background: linear-gradient(135deg, #5ab8a5, #103636); /* Dégradé moderne */
+    color: #fff;
+}
+
+.card-documents {
+    background: linear-gradient(135deg, #5a93be, #25435a);
+    color: #fff;
+}
+
+.card-emprunts {
+    background: linear-gradient(135deg, #f3a7a7, #35160f);
+    color: #fff;
+}
+
+.card-populaire {
+    background: linear-gradient(135deg, #b883ac, #2e222b);
+    color: #fff;
+}
+
+
+/* Titre et contenu des cartes */
+.card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: inherit;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.card-text {
+    font-size: 1rem;
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+/* Bouton "Consulter" */
+.btn-icon {
+    margin-top: 15px;
+    font-size: 1rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: transform 0.2s, color 0.3s;
+}
+
+.btn-icon:hover {
+    color: #ffe;
+    transform: translateX(5px);
+}
+.dashbord-menu {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+.container-fluid {
+    padding:  20px;
+    overflow-y: auto; 
+}
+/* Responsiveness */
+@media (max-width: 768px) {
+    .card-container {
+        grid-template-columns: 1fr; /* Une seule carte par ligne sur petits écrans */
+    }
+}
+.stats {
+    display: flex;
+    gap: 20px;
+}
+.stat-box {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    
+}
+.chart {
+     
+        margin: 20px auto;
+        width:750px;
+        max-width: 900px;
+        background-color: #fff;
+        border-radius: 15px;
+        box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        text-align: center;
+    
+}   
+/* Espacement entre plusieurs graphiques */
+.chart + .chart {
+    margin-top: 30px;
+}
+/* Affichage de l'image de l'histogramme */
+.chart img {
+    width: 580px;
+    height: auto;
+    border-radius: 10px;
+    max-height: 500px;
+    object-fit: cover;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .card-container {
+        grid-template-columns: 1fr; /* Une seule carte par ligne */
+    }
+
+    .chart {
+        width: 100%; /* Prend toute la largeur de l'écran */
+        padding: 15px; /* Réduire l'espace de padding */
+    }
+
+    .chart img {
+        max-height: 300px; /* Limiter la hauteur des graphiques pour les petits écrans */
+    }
+}

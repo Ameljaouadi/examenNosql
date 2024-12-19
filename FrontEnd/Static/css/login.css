@@ -1,0 +1,115 @@
+/* Disposition générale */
+body {
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Conteneur principal */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Boîte de connexion */
+.login-box {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px; /* Largeur augmentée */
+}
+
+/* Titre */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #33393f;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Champs de saisie */
+.textbox {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.textbox input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    outline: none;
+}
+
+.textbox input:focus {
+    border-color: #007bff;
+}
+
+/* Boutons */
+.boutons {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* Espace entre les boutons */
+    margin-top: 20px;
+}
+
+.boutons input {
+    flex: 1; /* Faire en sorte que les boutons aient la même largeur */
+    padding: 10px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Bouton Annuler */
+.btn-Annuler {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.btn-Annuler:hover {
+    background-color: #a71d2a;
+}
+
+/* Bouton de connexion */
+.btn-login {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.btn-login:hover {
+    background-color: #0056b3;
+}
+
+/* Lien d'inscription */
+.signup-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.signup-link a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .login-box {
+        padding: 20px;
+        width: 90%;
+    }
+}
